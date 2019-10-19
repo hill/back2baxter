@@ -1,5 +1,7 @@
-package com.example.back2baxta.ui.home;
+package com.example.back2baxta.ui.notifications;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,9 +18,9 @@ import androidx.lifecycle.ViewModelProviders;
 import com.example.back2baxta.R;
 import com.example.back2baxta.ui.usersLeaving.UsersLeavingFragment;
 
-public class HomeFragment extends Fragment {
+public class ProfileFragment extends Fragment {
 
-    private HomeViewModel homeViewModel;
+    private ProfileViewModel profileViewModel;
 
 
     private void openFragment(Fragment fragment) {
@@ -31,25 +33,17 @@ public class HomeFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
             ViewGroup container, Bundle savedInstanceState) {
-        homeViewModel =
-                ViewModelProviders.of(this).get(HomeViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_home, container, false);
-
+        profileViewModel =
+                ViewModelProviders.of(this).get(ProfileViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_profile, container, false);
         return root;
     }
-
 
     // This event is triggered soon after onCreateView().
     // Any view setup should occur here.  E.g., view lookups and attaching view listeners.
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
-        Button takeHome = view.findViewById(R.id.take_home_button);
-        takeHome.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                UsersLeavingFragment usersLeavingFragment = new UsersLeavingFragment();
-                openFragment(usersLeavingFragment);
-            }
-        });
+
 
     }
 }
